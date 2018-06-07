@@ -33,6 +33,18 @@ module.exports = function(app) {
 
     // This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
+    var newFriend = req.body;
+
+    // Using a RegEx Pattern to remove spaces from newCharacter
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    //newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newFriend);
+
+    friendsData.push(newFriend);
+
+    res.json(newFriend);
+
   });
 
 };
