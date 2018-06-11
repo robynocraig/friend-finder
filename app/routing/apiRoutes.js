@@ -34,10 +34,10 @@ module.exports = function(app) {
 
     res.json(newFriend);
 
-    var q1diff = ((newFriend.q1) - (friendsData[0].q1))
+    var q1diff = ((newFriend.scores[0]) - (friendsData[0].scores[0]))
     console.log(q1diff);
-    // console.log(newFriend.q1);
-    // console.log(friendsData[0].q1);
+    //console.log(newFriend.scores[0]);
+    //console.log(friendsData[0].scores[0]);
   });
 
 };

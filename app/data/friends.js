@@ -7,16 +7,18 @@ var friendsArray = [
   {
     name: "Ben",
     photo: 'https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14172852/gettyimages-592599097.jpg',
-    q1: 1,
-    q2: 2,
-    q3: 3,
-    q4: 4,
-    q5: 5,
-    q6: 5,
-    q7: 4,
-    q8: 3,
-    q9: 2,
-    q10: 1
+    scores: [
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    4,
+    3,
+    2,
+    1
+    ]
   }
 ];
 
