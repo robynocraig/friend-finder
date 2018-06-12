@@ -38,5 +38,5 @@ var friendsArray = [
   }
 ];
 
-// Note how we export the array. This makes it accessible to other files using require.
+// this makes the data accessible by other files
 module.exports = friendsArray;
