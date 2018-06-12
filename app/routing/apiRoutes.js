@@ -24,20 +24,39 @@ module.exports = function(app) {
 
   app.post("/api/friends", function(req, res) {
 
-    // This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
+  var newFriend = req.body;
 
-    var newFriend = req.body;
+  var userResponses = newFriend.scores;
 
-    console.log(newFriend);
+  // Compute best friend match
+  var matchName;
+  var matchImage;
+  var totalDifference = 100;
 
-    friendsData.push(newFriend);
+  // Examine all existing friends in the list
+  for (var i = 0; i < friendsData.length; i++) {
 
-    res.json(newFriend);
+    // Compute differenes for each question
+    var diff = 0;
+    for (var j = 0; j < userResponses.length; j++) {
+      diff += Math.abs(friendsData[i].scores[j] - userResponses[j]);
+    }
 
-    var q1diff = ((newFriend.scores[0]) - (friendsData[0].scores[0]))
-    console.log(q1diff);
-    //console.log(newFriend.scores[0]);
-    //console.log(friendsData[0].scores[0]);
+    // If lowest difference, record the friend match
+    if (diff < totalDifference) {
+
+      totalDifference = diff;
+      matchName = friendsData[i].name;
+      matchImage = friendsData[i].photo;
+    }
+  }
+
+  // Add new user
+  friendsData.push(newFriend);
+
+  // Send appropriate response
+  res.json({matchName: matchName, matchImage: matchImage});
+
   });
 
 };

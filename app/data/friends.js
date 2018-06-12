@@ -19,6 +19,22 @@ var friendsArray = [
     2,
     1
     ]
+  },
+  {
+    name: "Mark",
+    photo: 'https://www.famousbirthdays.com/faces/zuckerberg-mark-image.jpg',
+    scores: [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+    ]
   }
 ];
 

@@ -168,8 +168,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Ben</p>
-            <p><img src="https://d1o50x50snmhul.cloudfront.net/wp-content/uploads/2018/03/14172852/gettyimages-592599097.jpg" width="100%"></p>
+            <h5 id="matchName"></h5>
+            <img id="matchPic" src="" alt="Friend Picture" width="100%">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -202,11 +202,14 @@
           ]
         };
 
-        $.post("/api/friends", newFriend)
-          .then(function(data) {
-            //console.log("add.html", data);
+        $.post("/api/friends", newFriend, function(data) {
+                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $('#matchName').html(data.matchName);
+		    	      $("#matchPic").attr("src", data.matchImage);
+            });
+
             $("#friendmodal").modal('show');
-          });
+
       });
     </script>
 
